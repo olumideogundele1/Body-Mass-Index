@@ -23,10 +23,7 @@ class CardWidget extends StatelessWidget {
         SizedBox(
           height: kSizeBoxHeight,
         ),
-        Text(text, style:TextStyle(
-            fontSize: kFontSize,
-            color: kColorCode
-        ))
+        Text(text, style:kLabelStyle)
       ],
     );
   }
