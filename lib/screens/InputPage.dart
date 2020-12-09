@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/CalculateBMI.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -49,7 +50,7 @@ class _InputPageState extends State<InputPage> {
 
   GenderType selectedGender;
   int height = 180;
-  int weight = 0;
+  int weight = 12;
   int age = 1;
 
   @override
@@ -218,7 +219,12 @@ class _InputPageState extends State<InputPage> {
           ),
         GestureDetector(
           onTap: (){
-            Navigator.push(context,MaterialPageRoute(builder: (context) => ResultPage()));
+            CalculateBMI calc = CalculateBMI(weight: weight,height: height);
+            Navigator.push(context,MaterialPageRoute(builder: (context) => ResultPage(
+              bmiResult: calc.calculateBMI(),
+              bmiText: calc.getResult(),
+              bmiInterpretation: calc.getInterpretation(),
+            )));
           },
           child: Container(
             child: Center(

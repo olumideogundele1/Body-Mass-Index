@@ -4,6 +4,13 @@ import 'package:bmi_calculator/components/constants.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
+
+  final String bmiResult;
+  final String bmiText;
+  final String bmiInterpretation;
+
+  ResultPage({@required this.bmiResult,@required this.bmiText,@required this.bmiInterpretation});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,11 +34,11 @@ class ResultPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                      Text('Overview',style: kResultTextStyle,),
-                    Text('18.3',style: kBmiTextStyle,),
+                      Text(bmiText.toUpperCase(),style: kResultTextStyle,),
+                    Text(bmiResult,style: kBmiTextStyle,),
                     Container(
                       padding: EdgeInsets.all(10.0),
-                      child: Text('Your BMI result is quite low, you should eat more',
+                      child: Text(bmiInterpretation,
                         style: kBodyTextStyle,
                         textAlign: TextAlign.center,
                       ),
@@ -48,8 +55,6 @@ class ResultPage extends StatelessWidget {
 }
 
 class BottomButtonWidget extends StatelessWidget {
-
-
 
   @override
   Widget build(BuildContext context) {
